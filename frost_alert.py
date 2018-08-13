@@ -1,3 +1,5 @@
+#! python 3.6
+
 import time, requests, json, smtplib, schedule
 
 # 40.169932, -105.243231 Longmont coordinates
@@ -17,7 +19,7 @@ def job():
         smtpObj.ehlo()
         smtpObj.starttls()
         smtpObj.login('example@example.com', 'password')
-        smtpObj.sendmail('example@example.com', 'example2@example.com', 'Subject: Frost Alert!\nHi Wiley, the low temperature is going to drop dangerously low tonight, so please prepare your crops.\nExpected overnight low: %daily_low')
+        smtpObj.sendmail('example@example.com', 'example2@example.com', 'Subject: Frost Alert!\nHi Wiley, the low temperature is going to drop dangerously low tonight, so please prepare your crops.\nExpected overnight low: {}'.format(daily_low))
         smtpObj.quit()
 
 schedule.every().day.at("16:00").do(job)
