@@ -16,8 +16,8 @@ def job():
         smtpObj = smtplib.SMTP('smtp.gmail.com', 587)
         smtpObj.ehlo()
         smtpObj.starttls()
-        smtpObj.login('myfrostalert@gmail.com', '3mancipateGoats!')
-        smtpObj.sendmail('myfrostalert@gmail.com', 'wileymckayconte@gmail.com', 'Subject: Frost Alert!\nHi Wiley, the low temperature is going to drop dangerously low tonight, so please prepare your crops.\nExpected overnight low: %daily_low')
+        smtpObj.login('example@example.com', 'password')
+        smtpObj.sendmail('example@example.com', 'example2@example.com', 'Subject: Frost Alert!\nHi Wiley, the low temperature is going to drop dangerously low tonight, so please prepare your crops.\nExpected overnight low: %daily_low')
         smtpObj.quit()
 
 schedule.every().day.at("16:00").do(job)
